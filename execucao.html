@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execução - Projeto Top Spin Cidadão – CTB</title>
+    <style>
+        :root {
+            --ctb-azul-100: #003366;
+            --ctb-azul-20: #E6ECF2;
+            --ctb-azul-5: #F5F7FA;
+            --ctb-branco: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--ctb-azul-20);
+            color: var(--ctb-azul-100);
+        }
+
+        /* Cabeçalho */
+        .header {
+            background: var(--ctb-branco);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            height: 60px;
+        }
+
+        .title-box {
+            flex: 1;
+            text-align: center;
+        }
+
+        .title-box h1 {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: var(--ctb-azul-100);
+            margin: 0;
+        }
+        
+        /* Barra de Navegação */
+        .nav-bar {
+            background-color: var(--ctb-azul-100);
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn {
+            background: var(--ctb-branco);
+            color: var(--ctb-azul-100);
+            border: 2px solid var(--ctb-azul-100);
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--ctb-azul-20);
+            transform: scale(1.05);
+        }
+
+        /* Conteúdo Principal */
+        .main-container {
+            width: 100%;
+            padding: 24px 0;
+        }
+
+        .content-box {
+            margin: 32px auto;
+            background: var(--ctb-azul-5);
+            border-radius: 20px;
+            max-width: 1000px;
+            padding: 24px 40px;
+            box-shadow: 0 6px 16px rgba(0, 51, 102, 0.08);
+            border: 1px solid var(--ctb-azul-20);
+        }
+        
+        .content-box h2 {
+            color: var(--ctb-azul-100);
+            padding-bottom: 8px;
+            margin: 24px 0 16px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8em;
+        }
+
+        .title-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .content-box ul {
+            font-size: 1.15em;
+            line-height: 1.6;
+            color: var(--ctb-azul-100);
+            padding-left: 25px;
+            list-style-type: '✔ ';
+        }
+
+        /* Tabela de Cronograma */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 1em;
+            overflow-x: auto;
+            display: block;
+        }
+
+        th, td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid var(--ctb-azul-20);
+        }
+        
+        td:first-child, th:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        th {
+            background-color: var(--ctb-azul-100);
+            color: var(--ctb-branco);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--ctb-azul-20);
+        }
+
+        /* Rodapé */
+        .footer {
+            background: var(--ctb-azul-100);
+            width: 100%;
+            color: var(--ctb-branco);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer .col { flex: 1; min-width: 250px; padding: 10px; }
+        .footer .col.middle { text-align: center; }
+        .footer .col.right { text-align: right; }
+        .footer img { height: 48px; }
+        .footer a { color: var(--ctb-branco); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; }
+        .linkedin-img { height: 28px; width: 28px; }
+
+        @media (max-width: 800px) {
+            .header { padding: 12px 20px; flex-direction: column; gap: 10px; }
+            .title-box h1 { font-size: 1.5em; }
+            .nav-bar { flex-direction: column; gap: 10px; padding: 15px; }
+            .nav-btn { display: block; width: calc(100% - 60px); }
+            .content-box { padding: 16px 20px; }
+            .footer { flex-direction: column; text-align: center; gap: 20px; }
+            .footer .col.right, .footer .col.middle { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="ctb.png" alt="Logo Clube dos Tenistas da Bahia" class="logo">
+        <div class="title-box">
+            <h1>PROJETO TOP SPIN CIDADÃO</h1>
+        </div>
+        <img src="ctbbocadorio.png" alt="Logo CTB Boca do Rio" class="logo">
+    </div>
+
+    <div class="nav-bar">
+        <a href="index.html" class="nav-btn">Início</a>
+        <a href="indexprojeto.html" class="nav-btn">O Projeto</a>
+        <a href="execucao.html" class="nav-btn">Execução</a>
+        <a href="fotos.html" class="nav-btn">Fotos</a>
+    </div>
+
+    <div class="main-container">
+        <div class="content-box">
+            <h2>
+                <img src="ctb.svg" class="title-icon" alt="Ícone CTB">
+                Metodologia
+            </h2>
+            <ul>
+                <li>Diagnóstico comunitário e inscrição ativa dos participantes.</li>
+                <li>Divisão em turmas por idade e nível, com 3 treinos semanais de tênis.</li>
+                <li>Oficinas mensais interdisciplinares (meio ambiente, psicologia, capacitação).</li>
+                <li>Acompanhamento psicológico semanal em grupo e individualizado conforme a demanda.</li>
+                <li>Formação continuada dos jovens monitores para liderança e replicação do conhecimento.</li>
+                <li>Avaliações trimestrais de desenvolvimento técnico e psicossocial dos participantes.</li>
+            </ul>
+
+            <h2>
+                <img src="ctb.svg" class="title-icon" alt="Ícone CTB">
+                Cronograma de Execução (12 Meses)
+            </h2>
+            <table>
+                <tr>
+                    <th>Etapa</th>
+                    <th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th>
+                    <th>M7</th><th>M8</th><th>M9</th><th>M10</th><th>M11</th><th>M12</th>
+                </tr>
+                <tr>
+                    <td>Mobilização e Divulgação</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Inscrição e Diagnóstico</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Aulas Regulares de Tênis</td><td></td><td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                </tr>
+                <tr>
+                    <td>Oficinas Temáticas</td><td></td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td>
+                </tr>
+                <tr>
+                    <td>Apoio Psicológico</td><td></td><td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                </tr>
+                <tr>
+                    <td>Capacitação de Monitores</td><td></td><td></td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Torneios e Festivais</td><td></td><td></td><td></td><td></td><td>X</td><td></td><td></td><td>X</td><td></td><td></td><td></td><td>X</td>
+                </tr>
+                <tr>
+                    <td>Ações na Comunidade</td><td></td><td></td><td></td><td>X</td><td></td><td></td><td>X</td><td></td><td></td><td>X</td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Avaliação e Relatórios</td><td></td><td></td><td></td><td></td><td></td><td>X</td><td></td><td></td><td></td><td></td><td></td><td>X</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="col left">
+            <strong>Clube dos Tenistas da Bahia</strong><br>
+            CNPJ: 23.146.328/0001-16<br>
+            <a href="mailto:paulo@ctb-ba.com.br">paulo@ctb-ba.com.br</a><br>
+            <a href="https://wa.me/5571985304903">WhatsApp: (71) 98530-4903</a>
+        </div>
+        <div class="col middle">
+            <a href="https://www.linkedin.com/in/paulocarneiropfeira/" target="_blank">
+                <img class="linkedin-img" src="ctblinkedin.jpg" alt="Logo Linkedin">
+                Conecte-se no LinkedIn
+            </a>
+        </div>
+        <div class="col right">
+            <img src="ctb1.png" alt="Logo CTB rodapé">
+        </div>
+    </div>
+
+</body>
+</html>

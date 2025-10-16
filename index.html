@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Projeto Top Spin Cidadão – CTB</title>
+    <style>
+        :root {
+            --ctb-azul-100: #003366;
+            --ctb-azul-20: #E6ECF2;
+            --ctb-branco: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--ctb-azul-20);
+            color: var(--ctb-azul-100);
+        }
+
+        /* Cabeçalho */
+        .header {
+            background: var(--ctb-branco);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            height: 60px;
+        }
+
+        .title-box {
+            flex: 1;
+            text-align: center;
+        }
+
+        .title-box h1 {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: var(--ctb-azul-100);
+            margin: 0;
+        }
+        
+        /* Barra de Navegação */
+        .nav-bar {
+            background-color: var(--ctb-azul-100);
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn {
+            background: var(--ctb-branco);
+            color: var(--ctb-azul-100);
+            border: 2px solid var(--ctb-azul-100);
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            margin: 0 15px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--ctb-azul-20);
+            transform: scale(1.05);
+        }
+
+        /* Conteúdo Principal */
+        .main-container {
+            width: 100%;
+            padding: 24px 0;
+        }
+
+        .content-box {
+            margin: 32px auto;
+            background: var(--ctb-branco); /* Fundo branco para os boxes */
+            border-radius: 20px;
+            max-width: 1000px;
+            padding: 30px 40px;
+            box-shadow: 0 6px 16px rgba(0, 51, 102, 0.08);
+            border: 1px solid #dce4ed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .content-box video, .content-box img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 16px;
+        }
+
+        /* Rodapé */
+        .footer {
+            background: var(--ctb-azul-100);
+            width: 100%;
+            color: var(--ctb-branco);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer .col {
+            flex: 1;
+            min-width: 250px;
+            padding: 10px;
+        }
+
+        .footer .col.middle { text-align: center; }
+        .footer .col.right { text-align: right; }
+
+        .footer img { height: 48px; }
+        .footer a { color: var(--ctb-branco); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; }
+
+        .linkedin-img { height: 28px; width: 28px; }
+
+        @media (max-width: 800px) {
+            .header { padding: 12px 20px; flex-direction: column; gap: 10px; }
+            .title-box h1 { font-size: 1.5em; }
+            .nav-bar { display: flex; flex-direction: column; gap: 10px; padding: 15px; }
+            .content-box { padding: 16px 20px; }
+            .footer { flex-direction: column; text-align: center; gap: 20px; }
+            .footer .col.right, .footer .col.middle { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="ctb.png" alt="Logo Clube dos Tenistas da Bahia" class="logo">
+        <div class="title-box">
+            <h1>PROJETO TOP SPIN CIDADÃO</h1>
+        </div>
+        <img src="ctbbocadorio.png" alt="Logo CTB Boca do Rio" class="logo">
+    </div>
+
+    <div class="nav-bar">
+        <a href="indexprojeto.html" class="nav-btn">O Projeto</a>
+        <a href="execucao.html" class="nav-btn">Execução</a>
+        <a href="fotos.html" class="nav-btn">Fotos</a>
+    </div>
+
+    <div class="main-container">
+        <!-- Box com o Vídeo -->
+        <div class="content-box">
+            <video src="video.mp4" controls autoplay muted loop>
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+
+        <!-- Box com a Imagem -->
+        <div class="content-box">
+            <img src="ctbbocario.png" alt="Imagem do Clube dos Tenistas da Bahia na Boca do Rio">
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="col left">
+            <strong>Clube dos Tenistas da Bahia</strong><br>
+            CNPJ: 23.146.328/0001-16<br>
+            <a href="mailto:paulo@ctb-ba.com.br">paulo@ctb-ba.com.br</a><br>
+            <a href="https://wa.me/5571985304903">WhatsApp: (71) 98530-4903</a>
+        </div>
+        <div class="col middle">
+            <a href="https://www.linkedin.com/in/paulocarneiropfeira/" target="_blank">
+                <img class="linkedin-img" src="ctblinkedin.jpg" alt="Logo Linkedin">
+                Conecte-se no LinkedIn
+            </a>
+        </div>
+        <div class="col right">
+            <img src="ctb1.png" alt="Logo CTB rodapé">
+        </div>
+    </div>
+
+</body>
+</html>
+
+

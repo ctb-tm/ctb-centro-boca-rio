@@ -9,6 +9,7 @@
             --ctb-azul-100: #003366;
             --ctb-azul-20: #E6ECF2;
             --ctb-branco: #FFFFFF;
+            --ctb-azul-5: #F5F7FA;
         }
 
         body {
@@ -100,13 +101,13 @@
         /* Galeria de Fotos */
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
-        .photo-gallery img {
+        .gallery-img {
             width: 100%;
-            height: 250px; /* Altura fixa para padronizar */
+            height: 220px; /* Altura fixa para padronizar */
             object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
@@ -114,9 +115,54 @@
             cursor: pointer;
         }
 
-        .photo-gallery img:hover {
+        .gallery-img:hover {
             transform: scale(1.04);
             box-shadow: 0 8px 20px rgba(0, 51, 102, 0.2);
+        }
+
+        /* Modal (imagem expandida) */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            z-index: 2000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 85%;
+            max-height: 85vh;
+            animation-name: zoom;
+            animation-duration: 0.5s;
+        }
+        
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 25px;
+            right: 45px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         /* Rodapé */
@@ -146,6 +192,7 @@
             .content-box { padding: 16px 20px; }
             .footer { flex-direction: column; text-align: center; gap: 20px; }
             .footer .col.right, .footer .col.middle { text-align: center; }
+            .modal-content { max-width: 95%; }
         }
     </style>
 </head>
@@ -169,20 +216,22 @@
         <div class="content-box">
             <h2>Galeria de Fotos</h2>
             <div class="photo-gallery">
-                <img src="ctb2.png" alt="Foto do treino inaugural do projeto">
-                <img src="ctb3.png" alt="Foto da oficina de conscientização ambiental">
-                <img src="ctb4.png" alt="Foto da roda de conversa com a psicóloga">
-                <img src="ctb5.png" alt="Foto da capacitação dos jovens monitores">
-                <img src="ctb6.png" alt="Foto da ação de limpeza na praia da Boca do Rio">
-                <img src="ctb7.png" alt="Foto do torneio de integração entre os alunos">
-                <img src="ctb8.png" alt="Foto de uma aula prática de tênis">
-                <img src="ctb9.png" alt="Foto da equipe de instrutores e coordenadores">
-                <img src="ctb10.png" alt="Foto da entrega dos uniformes para os participantes">
-                <img src="ctb11.png" alt="Foto de voluntários ajudando em um evento">
-                <img src="ctb12.png" alt="Foto de um momento de confraternização">
-                <img src="ctb13.png" alt="Foto aérea do espaço do projeto">
+                <img src="ctb2.jpg" class="gallery-img" alt="Foto 1 do projeto">
+                <img src="ctb3.jpg" class="gallery-img" alt="Foto 2 do projeto">
+                <img src="ctb4.jpg" class="gallery-img" alt="Foto 3 do projeto">
+                <img src="ctb5.jpg" class="gallery-img" alt="Foto 4 do projeto">
+                <img src="ctb6.jpg" class="gallery-img" alt="Foto 5 do projeto">
+                <img src="ctb7.jpg" class="gallery-img" alt="Foto 6 do projeto">
+                <img src="ctb8.jpg" class="gallery-img" alt="Foto 7 do projeto">
+                <img src="ctb9.jpg" class="gallery-img" alt="Foto 8 do projeto">
             </div>
         </div>
+    </div>
+
+    <!-- O Modal para expandir a imagem -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
     </div>
 
     <div class="footer">
@@ -203,6 +252,37 @@
         </div>
     </div>
 
+    <script>
+        // Pega o modal
+        var modal = document.getElementById('imageModal');
+    
+        // Pega a imagem do modal
+        var modalImg = document.getElementById("modalImage");
+        
+        // Pega todas as imagens da galeria e adiciona o evento de clique
+        var galleryImages = document.querySelectorAll('.gallery-img');
+        galleryImages.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+    
+        // Pega o elemento <span> que fecha o modal
+        var span = document.getElementsByClassName("close")[0];
+    
+        // Quando o usuário clica no <span> (x), fecha o modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    
+        // Fecha o modal se o usuário clicar em qualquer lugar fora da imagem
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
 

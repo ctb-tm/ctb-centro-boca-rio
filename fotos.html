@@ -62,7 +62,7 @@
             padding: 12px 30px;
             font-size: 1.1em;
             border-radius: 10px;
-            margin: 0 15px;
+            margin: 0 10px;
             cursor: pointer;
             font-weight: bold;
             text-transform: uppercase;
@@ -106,11 +106,12 @@
 
         .photo-gallery img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 250px; /* Altura fixa para padronizar */
+            object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
         .photo-gallery img:hover {
@@ -141,6 +142,7 @@
             .header { padding: 12px 20px; flex-direction: column; gap: 10px; }
             .title-box h1 { font-size: 1.5em; }
             .nav-bar { display: flex; flex-direction: column; gap: 10px; padding: 15px; }
+            .nav-btn { display: block; width: calc(100% - 60px); }
             .content-box { padding: 16px 20px; }
             .footer { flex-direction: column; text-align: center; gap: 20px; }
             .footer .col.right, .footer .col.middle { text-align: center; }
@@ -167,19 +169,18 @@
         <div class="content-box">
             <h2>Galeria de Fotos</h2>
             <div class="photo-gallery">
-                <!-- Substitua os links abaixo pelas suas fotos -->
-                <img src="https://placehold.co/400x300/003366/FFF?text=Treino+Inaugural" alt="Foto do treino inaugural do projeto">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Oficina+Ambiental" alt="Foto da oficina de conscientização ambiental">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Roda+de+Conversa" alt="Foto da roda de conversa com a psicóloga">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Jovens+Monitores" alt="Foto da capacitação dos jovens monitores">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Ação+na+Praia" alt="Foto da ação de limpeza na praia da Boca do Rio">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Dia+de+Torneio" alt="Foto do torneio de integração entre os alunos">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Aula+Prática" alt="Foto de uma aula prática de tênis">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Equipe+do+Projeto" alt="Foto da equipe de instrutores e coordenadores">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Entrega+de+Uniformes" alt="Foto da entrega dos uniformes para os participantes">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Voluntários+em+Ação" alt="Foto de voluntários ajudando em um evento">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Confraternização" alt="Foto de um momento de confraternização">
-                <img src="https://placehold.co/400x300/003366/FFF?text=Vista+Aérea+do+CTB" alt="Foto aérea do espaço do projeto">
+                <img src="ctb2.png" alt="Foto do treino inaugural do projeto">
+                <img src="ctb3.png" alt="Foto da oficina de conscientização ambiental">
+                <img src="ctb4.png" alt="Foto da roda de conversa com a psicóloga">
+                <img src="ctb5.png" alt="Foto da capacitação dos jovens monitores">
+                <img src="ctb6.png" alt="Foto da ação de limpeza na praia da Boca do Rio">
+                <img src="ctb7.png" alt="Foto do torneio de integração entre os alunos">
+                <img src="ctb8.png" alt="Foto de uma aula prática de tênis">
+                <img src="ctb9.png" alt="Foto da equipe de instrutores e coordenadores">
+                <img src="ctb10.png" alt="Foto da entrega dos uniformes para os participantes">
+                <img src="ctb11.png" alt="Foto de voluntários ajudando em um evento">
+                <img src="ctb12.png" alt="Foto de um momento de confraternização">
+                <img src="ctb13.png" alt="Foto aérea do espaço do projeto">
             </div>
         </div>
     </div>

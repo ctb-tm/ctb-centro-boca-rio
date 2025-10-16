@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Top Spin Cidadão – CTB</title>
+    <style>
+        /* Definindo as cores do manual da marca CTB */
+        :root {
+            --ctb-azul-100: #003366; /* Azul principal para textos, títulos e rodapé */
+            --ctb-azul-20: #E6ECF2;  /* Azul claro para o fundo da página */
+            --ctb-azul-5: #F5F7FA;   /* Azul muito claro para os boxes de conteúdo */
+            --ctb-branco: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--ctb-azul-20);
+            color: var(--ctb-azul-100);
+            scroll-behavior: smooth;
+        }
+
+        /* Cabeçalho */
+        .header {
+            background: var(--ctb-branco);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            height: 60px;
+        }
+
+        .title-box {
+            flex: 1;
+            text-align: center;
+        }
+
+        .title-box h1 {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: var(--ctb-azul-100);
+            margin: 0;
+        }
+
+        /* Conteúdo Principal */
+        .main-container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 24px 0;
+        }
+
+        .content-box {
+            margin: 32px auto;
+            background: var(--ctb-azul-5);
+            border-radius: 20px;
+            max-width: 1000px;
+            padding: 24px 40px;
+            box-shadow: 0 6px 16px rgba(0, 51, 102, 0.08);
+            border: 1px solid var(--ctb-azul-20);
+        }
+        
+        /* Títulos com Ícone */
+        .content-box h2 {
+            color: var(--ctb-azul-100);
+            padding-bottom: 8px;
+            margin: 24px 0 16px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8em;
+        }
+
+        .title-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .content-box p, .content-box ul {
+            font-size: 1.15em;
+            line-height: 1.6;
+            color: var(--ctb-azul-100);
+        }
+
+        .content-box ul {
+            padding-left: 25px;
+            list-style-type: '✔ ';
+        }
+
+        /* Botões */
+        .btn {
+            background: var(--ctb-azul-100);
+            color: var(--ctb-branco);
+            border: none;
+            padding: 14px 36px;
+            font-size: 1.1em;
+            border-radius: 12px;
+            margin: 16px 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 1.1em;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--ctb-azul-20);
+        }
+
+        th {
+            background-color: var(--ctb-azul-100);
+            color: var(--ctb-branco);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--ctb-azul-20);
+        }
+        
+        tr:last-child th, tr:last-child td {
+            font-weight: bold;
+            font-size: 1.15em;
+        }
+
+        .total-row th {
+            text-align: right;
+            background-color: var(--ctb-azul-100);
+            color: var(--ctb-branco);
+        }
+        
+        .centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 28px 0;
+            text-align: center;
+        }
+        
+        .project-image {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 24px 0;
+            box-shadow: 0 4px 12px rgba(0, 51, 102, 0.15);
+        }
+
+        /* Rodapé */
+        .footer {
+            background: var(--ctb-azul-100);
+            width: 100%;
+            color: var(--ctb-branco);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer .col {
+            flex: 1;
+            min-width: 250px;
+            padding: 10px;
+        }
+
+        .footer .col.middle { text-align: center; }
+        .footer .col.right { text-align: right; }
+
+        .footer img { height: 48px; }
+        .footer a { color: var(--ctb-branco); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; }
+
+        .linkedin-img { height: 28px; width: 28px; }
+
+        @media (max-width: 800px) {
+            .header { padding: 12px 20px; flex-direction: column; gap: 10px; }
+            .title-box h1 { font-size: 1.5em; }
+            .content-box { padding: 16px 20px; }
+            .footer { flex-direction: column; text-align: center; gap: 20px; }
+            .footer .col.right, .footer .col.middle { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SVG Ícone CTB para Títulos (REMOVIDO - AGORA USA ARQUIVO .SVG) -->
+
+    <div class="header">
+        <img src="ctb.png" alt="Logo Clube dos Tenistas da Bahia" class="logo">
+        <div class="title-box">
+            <h1>PROJETO TOP SPIN CIDADÃO</h1>
+        </div>
+        <img src="https://placehold.co/200x60/ffffff/003366?text=GEMINI+LOGO" alt="Logo Parceiro Gemini" class="logo">
+    </div>
+
+    <!-- PÁGINA 1: APRESENTAÇÃO -->
+    <div id="home" class="main-container">
+        <div class="content-box">
+            <div class="centered">
+                <img src="https://placehold.co/800x450/003366/ffffff?text=Jovens+Jogando+Tênis" alt="Imagem de jovens praticando tênis em uma quadra na comunidade." class="project-image">
+                <h2>
+                    <img src="ctb.svg" class="title-icon" alt="Ícone CTB">
+                    Bem-vindo ao Projeto Top Spin Cidadão!
+                </h2>
+                <p>
+                    Uma iniciativa do Clube dos Tenistas da Bahia para transformar realidades no bairro da Boca do Rio, em Salvador. Unimos a força do esporte, a importância da capacitação profissional, o cuidado com o meio ambiente e o suporte à saúde mental para construir um futuro com mais oportunidades para crianças e adolescentes da nossa comunidade.
+                </p>
+                <button class="btn" onclick="window.location.href='#projeto'">CONHEÇA O PROJETO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 2: O PROJETO -->
+    <div id="projeto" class="main-container">
+        <div class="content-box">
+            <h2>
+                <img src="ctb.svg" class="title-icon" alt="Ícone CTB">
+                Objetivo Principal
+            </h2>
+            <p>Promover a inclusão social e o desenvolvimento integral de 100 crianças e adolescentes em situação de vulnerabilidade na Boca do Rio, utilizando o tênis como ferramenta de transformação e oferecendo um ecossistema de apoio para o crescimento pessoal, profissional e cidadão.</p>
+            
+            <h2>
+                <img src="ctb.svg" class="title-icon" alt="Ícone CTB">
+                Objetivos Específicos
+            </h2>
+            <ul>
+                <li>Oferecer 200 aulas de tênis anuais, estimulando a saúde física e valores como disciplina e respeito.</li>
+                <li>Capacitar 20 jovens como monitores esportivos e agentes socioambientais.</li>
+                <li>Realizar 12 oficinas temáticas sobre sustentabilidade, cidadania e tecnologia.</li>
+                <li>Implementar um programa contínuo de apoio psicológico, com rodas de conversa e atendimentos individuais.</li>
+                <li>Promover 4 grandes ações de limpeza e conscientização na praia da Boca do Rio.</li>
+                <li>Organizar 6 torneios internos e festivais para integração da comunidade.</li>
+            </ul>
+
+            <h2>
+                <img src="ctb.svg" class="title-icon" alt="Ícone CTB">
+                Justificativa
+            </h2>
+            <p>O bairro da Boca do Rio, apesar de sua riqueza cultural, apresenta desafios sociais que impactam diretamente seus jovens. O projeto Top Spin Cidadão surge como uma resposta inovadora, criando um ambiente seguro e estimulante. Alinhado aos Objetivos de Desenvolvimento Sustentável (ODS) da ONU, o projeto combate o sedentarismo, fortalece a educação, promove a igualdade e fomenta a consciência ambiental.</p>
+
+            <h2>
+                <img src="ctb.svg" class="title-icon" alt="Ícone CTB">
+                Metodologia
+            </h2>
+            <ul>
+                <li>Diagnóstico comunitário e inscrição ativa dos participantes.</li>
+                <li>Divisão em turmas por idade e nível, com 3 treinos semanais de tênis.</li>
+                <li>Oficinas mensais interdisciplinares (meio ambiente, psicologia, capacitação).</li>
+                <li>Acompanhamento psicológico semanal em grupo e individualizado conforme a demanda.</li>
+                <li>Formação continuada dos jovens monitores para liderança e replicação do conhecimento.</li>
+                <li>Avaliações trimestrais de desenvolvimento técnico e psicossocial dos participantes.</li>
+            </ul>
+            
+            <div class="centered">
+                 <button class="btn" onclick="window.location.href='#orcamento'">VER ORÇAMENTO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 3: ORÇAMENTO -->
+    <div id="orcamento" class="main-container">
+        <div class="content-box">
+            <h2>
+                <img src="ctb.svg" class="title-icon" alt="Ícone CTB">
+                Orçamento Detalhado (12 meses)
+            </h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Qtde.</th>
+                    <th>Valor Unit. (R$)</th>
+                    <th>Valor Total (R$)</th>
+                </tr>
+                <tr>
+                    <td>Coordenador Geral do Projeto</td>
+                    <td>1</td>
+                    <td>R$ 4.000,00/mês</td>
+                    <td>R$ 48.000,00</td>
+                </tr>
+                <tr>
+                    <td>Psicólogo(a)</td>
+                    <td>1</td>
+                    <td>R$ 3.500,00/mês</td>
+                    <td>R$ 42.000,00</td>
+                </tr>
+                 <tr>
+                    <td>Instrutores de Tênis</td>
+                    <td>2</td>
+                    <td>R$ 2.500,00/mês</td>
+                    <td>R$ 60.000,00</td>
+                </tr>
+                <tr>
+                    <td>Educador Ambiental / Oficineiro</td>
+                    <td>1</td>
+                    <td>R$ 2.000,00/mês</td>
+                    <td>R$ 24.000,00</td>
+                </tr>
+                 <tr>
+                    <td>Bolsa-auxílio Monitores Jovens</td>
+                    <td>20</td>
+                    <td>R$ 250,00/mês</td>
+                    <td>R$ 60.000,00</td>
+                </tr>
+                <tr>
+                    <td>Raquetes de Tênis (Infantis/Juvenis)</td>
+                    <td>80</td>
+                    <td>R$ 250,00</td>
+                    <td>R$ 20.000,00</td>
+                </tr>
+                <tr>
+                    <td>Bolas de Tênis (caixas)</td>
+                    <td>150</td>
+                    <td>R$ 60,00</td>
+                    <td>R$ 9.000,00</td>
+                </tr>
+                 <tr>
+                    <td>Uniformes e Kits de Higiene</td>
+                    <td>100</td>
+                    <td>R$ 120,00</td>
+                    <td>R$ 12.000,00</td>
+                </tr>
+                <tr>
+                    <td>Lanches e Hidratação</td>
+                    <td>12 meses</td>
+                    <td>R$ 1.500,00/mês</td>
+                    <td>R$ 18.000,00</td>
+                </tr>
+                <tr>
+                    <td>Material Esportivo e Pedagógico</td>
+                    <td>12 meses</td>
+                    <td>R$ 500,00/mês</td>
+                    <td>R$ 6.000,00</td>
+                </tr>
+                <tr class="total-row">
+                    <th colspan="3">TOTAL GERAL ESTIMADO</th>
+                    <td>R$ 299.000,00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="col left">
+            <strong>Clube dos Tenistas da Bahia</strong><br>
+            CNPJ: 23.146.328/0001-16<br>
+            <a href="mailto:paulo@ctb-ba.com.br">paulo@ctb-ba.com.br</a><br>
+            <a href="https://wa.me/5571985304903">WhatsApp: (71) 98530-4903</a>
+        </div>
+        <div class="col middle">
+            <a href="https://www.linkedin.com/in/paulocarneiropfeira/" target="_blank">
+                <img class="linkedin-img" src="ctblinkedin.jpg" alt="Logo Linkedin">
+                Conecte-se no LinkedIn
+            </a>
+        </div>
+        <div class="col right">
+            <img src="ctb1.png" alt="Logo CTB rodapé">
+        </div>
+    </div>
+
+</body>
+</html>
+

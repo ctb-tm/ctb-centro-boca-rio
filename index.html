@@ -3,189 +3,455 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início - Projeto Top Spin Cidadão – CTB</title>
+    <title>CTB HUB BOCA DO RIO</title>
     <style>
+        /* ESTILOS GERAIS E VARIÁVEIS DE COR */
         :root {
-            --ctb-azul-100: #003366;
-            --ctb-azul-20: #E6ECF2;
-            --ctb-branco: #FFFFFF;
+            --primary: #046b43;
+            --accent-blue: #1565c0;
+            --blue-6: #e3f0fa;
+            --table-border-radius: 18px;
+            --background: #f5f7fa;
+            --card-bg: #fff;
+            --font-main: 'Segoe UI', Arial, sans-serif;
         }
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: var(--ctb-azul-20);
-            color: var(--ctb-azul-100);
+            font-family: var(--font-main);
+            background: var(--background);
         }
 
-        /* Cabeçalho */
+        /* CABEÇALHO UNIFICADO */
         .header {
-            background: var(--ctb-branco);
+            background: var(--card-bg);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 40px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 20px 40px;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 0.07);
+            border-bottom: 2px solid var(--primary);
         }
 
-        .header .logo {
+        .header img {
             height: 60px;
         }
 
-        .title-box {
+        .header .title-box {
             flex: 1;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .title-box h1 {
+        .header .title-svg {
+            width: 34px;
+            height: 34px;
+        }
+
+        .header .title-box h1 {
             font-size: 2.2em;
             font-weight: bold;
-            color: var(--ctb-azul-100);
+            color: var(--primary);
             margin: 0;
+            background: linear-gradient(90deg, var(--primary), #47d490);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        
-        /* Barra de Navegação */
-        .nav-bar {
-            background-color: var(--ctb-azul-100);
+
+        /* MENU DE NAVEGAÇÃO */
+        .nav-menu {
+            background-color: var(--accent-blue);
             text-align: center;
-            padding: 10px 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 12px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .nav-btn {
-            background: var(--ctb-branco);
-            color: var(--ctb-azul-100);
-            border: 2px solid var(--ctb-azul-100);
+            background: var(--card-bg);
+            color: var(--accent-blue);
+            border: none;
             padding: 12px 30px;
             font-size: 1.1em;
             border-radius: 10px;
-            margin: 0 15px;
+            margin: 0 10px;
             cursor: pointer;
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        
+
         .nav-btn:hover {
-            background: var(--ctb-azul-20);
-            transform: scale(1.05);
+            background-color: #e3f0fa;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn.active {
+            background-color: var(--primary);
+            color: var(--card-bg);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* Conteúdo Principal */
-        .main-container {
-            width: 100%;
-            padding: 24px 0;
+        /* CONTROLE DAS PÁGINAS */
+        .page {
+            display: none; /* Todas as páginas começam escondidas */
+        }
+
+        .page.active {
+            display: block; /* A página ativa é mostrada */
+        }
+        
+        .main-bg {
+             min-height: 80vh;
+             padding: 1px 0 50px 0;
         }
 
         .content-box {
-            margin: 32px auto;
-            background: var(--ctb-branco); /* Fundo branco para os boxes */
+            margin: 36px auto;
+            background: var(--card-bg);
             border-radius: 20px;
-            max-width: 1000px;
-            padding: 30px 40px;
-            box-shadow: 0 6px 16px rgba(0, 51, 102, 0.08);
-            border: 1px solid #dce4ed;
+            max-width: 950px;
+            padding: 32px 38px;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 0.07);
+            border: 1px solid #e0e0e0;
+        }
+
+        .section-title {
             display: flex;
-            justify-content: center;
             align-items: center;
+            gap: 12px;
+            font-size: 1.5em;
+            margin: 36px 0 18px 0;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .section-icon { width: 28px; height: 28px; }
+
+        .content-box ul, .content-box p {
+            color: #09452c;
+            font-size: 1.11em;
+            line-height: 1.7;
         }
         
-        .content-box video, .content-box img {
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            border-radius: 16px;
+        /* ESTILOS DE TABELA (CRONOGRAMA E ORÇAMENTO) */
+        .table-box {
+            background: #fff;
+            border-radius: var(--table-border-radius);
+            box-shadow: 0 3px 16px rgba(21, 101, 192, 0.03);
+            overflow: hidden;
+            margin: 22px 0 36px 0;
+            padding: 12px 0 0 0;
+            border: 1.5px solid #eef2f7;
+            overflow-x: auto;
         }
 
-        /* Rodapé */
-        .footer {
-            background: var(--ctb-azul-100);
+        table {
             width: 100%;
-            color: var(--ctb-branco);
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 1.05em;
+        }
+        
+        th {
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 14px;
+            font-weight: bold;
+            border: none;
+            text-align: left;
+        }
+
+        tr:nth-child(even) { background: #e3f0fa; }
+        tr:nth-child(odd) { background: #f8fbff; }
+        
+        td {
+            padding: 11px 10px;
+            border: none;
+            color: #0b2b4c;
+        }
+        
+        /* ESTILOS PÁGINA INICIAL */
+         .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px 0;
+        }
+        .media-item {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* ESTILOS PÁGINA FOTOS (GALERIA E MODAL) */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-img:hover { transform: scale(1.04); }
+        .modal {
+            display: none; position: fixed; z-index: 2000;
+            padding-top: 50px; left: 0; top: 0;
+            width: 100%; height: 100%; overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            margin: auto; display: block;
+            max-width: 85%; max-height: 85vh;
+            animation: zoom 0.5s;
+        }
+        @keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+        .close {
+            position: absolute; top: 25px; right: 45px;
+            color: #f1f1f1; font-size: 40px; font-weight: bold;
+            transition: 0.3s; cursor: pointer;
+        }
+        .close:hover { color: #bbb; }
+
+        /* RODAPÉ UNIFICADO */
+        .footer {
+            background: var(--primary);
+            color: #fff;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 24px 40px;
-            flex-wrap: wrap;
+            align-items: flex-start;
+            padding: 30px 38px;
         }
 
-        .footer .col {
-            flex: 1;
-            min-width: 250px;
-            padding: 10px;
-        }
-
-        .footer .col.middle { text-align: center; }
-        .footer .col.right { text-align: right; }
-
-        .footer img { height: 48px; }
-        .footer a { color: var(--ctb-branco); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; }
-
-        .linkedin-img { height: 28px; width: 28px; }
-
-        @media (max-width: 800px) {
+        .footer .col { flex: 1; min-width: 250px; padding: 10px;}
+        .footer a { color: #fff; text-decoration: none; font-weight: 600; }
+        .footer .icon { width: 22px; height: 22px; vertical-align: middle; margin-right: 6px; }
+        .footer .middle { text-align: center; }
+        .footer .right { text-align: right; }
+        .footer .linkedin-img { height: 38px; width: 38px; margin-bottom: 8px; }
+        
+        /* RESPONSIVIDADE */
+        @media (max-width: 900px) {
             .header { padding: 12px 20px; flex-direction: column; gap: 10px; }
-            .title-box h1 { font-size: 1.5em; }
-            .nav-bar { display: flex; flex-direction: column; gap: 10px; padding: 15px; }
-            .content-box { padding: 16px 20px; }
+            .header .title-box h1 { font-size: 1.5em; }
+            .nav-menu { display: flex; flex-direction: column; gap: 10px; padding: 15px; }
+            .nav-btn { display: block; width: calc(100% - 80px); }
+            .content-box { padding: 18px 15px; }
             .footer { flex-direction: column; text-align: center; gap: 20px; }
-            .footer .col.right, .footer .col.middle { text-align: center; }
+            .footer .right, .footer .middle { text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="ctb.png" alt="Logo Clube dos Tenistas da Bahia" class="logo">
+    <!-- CABEÇALHO (APARECE EM TODAS AS PÁGINAS) -->
+    <header class="header">
+        <img src="ctb.png" alt="CTB">
         <div class="title-box">
-            <h1>PROJETO TOP SPIN CIDADÃO</h1>
+            <img class="title-svg" src="ctb.svg" alt="CTB Logo SVG">
+            <h1>CTB HUB BOCA DO RIO</h1>
         </div>
-        <img src="ctbbocadorio.png" alt="Logo CTB Boca do Rio" class="logo">
+        <img src="ctbbocadorio.png" alt="Boca do Rio Hub">
+    </header>
+
+    <!-- MENU DE NAVEGAÇÃO (CONTROLA AS PÁGINAS) -->
+    <nav class="nav-menu">
+        <button class="nav-btn active" onclick="showPage('page-inicial', this)">Início</button>
+        <button class="nav-btn" onclick="showPage('page-projeto', this)">Projeto</button>
+        <button class="nav-btn" onclick="showPage('page-execucao', this)">Execução</button>
+        <button class="nav-btn" onclick="showPage('page-fotos', this)">Fotos</button>
+    </nav>
+
+    <main class="main-bg">
+        <!-- PÁGINA 1: INÍCIO -->
+        <div id="page-inicial" class="page active">
+            <div class="content-box">
+                <div class="centered-content">
+                    <video src="video.mp4" controls autoplay muted loop class="media-item"></video>
+                    <img src="ctbbocadorio.png" alt="Logo do Projeto CTB Boca do Rio" class="media-item">
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 2: PROJETO (CONTEÚDO INTEGRADO) -->
+        <div id="page-projeto" class="page">
+            <div class="content-box">
+                <div class="section-title">
+                    <svg class="section-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25986a"/><path d="M10 18 L16 12 L22 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+                    Bem-vindo ao CTB HUB BOCA DO RIO
+                </div>
+                <p>
+                    O CTB Hub Boca do Rio promove saúde, bem-estar, sustentabilidade e inclusão social em Salvador para entregadores e comunidade. Explore ações, metas e resultados neste hub inovador.
+                </p>
+            </div>
+            <div class="content-box" id="projeto">
+                <div class="section-title">
+                    <svg class="section-icon" viewBox="0 0 32 32" fill="none"><rect x="8" y="8" width="16" height="16" rx="4" fill="#046b43"/><path d="M12 20 L16 14 L20 20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+                    Cronograma
+                </div>
+                <div class="table-box">
+                    <table>
+                        <tr>
+                            <th>Etapa</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th><th>M7</th><th>M8</th><th>M9</th><th>M10</th><th>M11</th><th>M12</th>
+                        </tr>
+                        <tr><td>Mobilização</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Infraestrutura</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Cadastro</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Treinos</td><td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+                        <tr><td>Oficinas</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td></tr>
+                        <tr><td>Torneios</td><td></td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td></tr>
+                        <tr><td>Suporte Psicológico</td><td></td><td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+                        <tr><td>Monitoramento</td><td></td><td></td><td></td><td></td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td>X</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="content-box" id="orcamento">
+                <div class="section-title">
+                    <svg class="section-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#046b43"/><rect x="10" y="10" width="12" height="12" fill="#fff"/></svg>
+                    Orçamento Detalhado
+                </div>
+                <div class="table-box">
+                    <table>
+                        <tr>
+                            <th>Item</th><th>Qtde</th><th>Unit. (R$)</th><th>Total (R$)</th>
+                        </tr>
+                        <tr><td>Mesas de tênis de mesa</td><td>8</td><td>2.200,00</td><td>17.600,00</td></tr>
+                        <tr><td>Raquetes</td><td>120</td><td>65,00</td><td>7.800,00</td></tr>
+                        <tr><td>Bolas</td><td>4.500</td><td>2,50</td><td>11.250,00</td></tr>
+                        <tr><td>Jardins verticais</td><td>4</td><td>3.500,00</td><td>14.000,00</td></tr>
+                        <tr><td>Coordenador (ano)</td><td>1</td><td>3.200,00/mês</td><td>38.400,00</td></tr>
+                        <tr><td>Psicólogo (ano)</td><td>1</td><td>3.200,00/mês</td><td>38.400,00</td></tr>
+                        <tr><td>Assistentes</td><td>4</td><td>1.700,00/mês</td><td>81.600,00</td></tr>
+                        <tr><td>Locação do galpão</td><td>12</td><td>5.200,00/mês</td><td>62.400,00</td></tr>
+                        <tr><td>Manutenção e limpeza</td><td>12</td><td>2.200,00/mês</td><td>26.400,00</td></tr>
+                        <tr>
+                            <th colspan="3" style="text-align:right;background:#1565c0;color:#fff;">TOTAL GERAL</th>
+                            <th style="background:#046b43;color:#fff;">297.450,00</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PÁGINA 3: EXECUÇÃO -->
+        <div id="page-execucao" class="page">
+             <div class="content-box">
+                <div class="section-title">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#046b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="#046b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 13H8" stroke="#046b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 17H8" stroke="#046b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 9H8" stroke="#046b43" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Metodologia
+                </div>
+                <p>O projeto será executado através de uma abordagem integrada, combinando atividades práticas e teóricas para garantir o desenvolvimento completo dos participantes.</p>
+                <ul>
+                    <li>Diagnóstico comunitário e inscrição ativa dos participantes.</li>
+                    <li>Divisão em turmas por idade e nível, com treinos de tênis de mesa.</li>
+                    <li>Oficinas mensais interdisciplinares (meio ambiente, psicologia, capacitação).</li>
+                    <li>Acompanhamento psicológico semanal em grupo e individualizado.</li>
+                    <li>Formação continuada de jovens monitores para liderança.</li>
+                    <li>Avaliações trimestrais de desenvolvimento técnico e psicossocial.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PÁGINA 4: FOTOS -->
+        <div id="page-fotos" class="page">
+            <div class="content-box">
+                <h2 style="text-align: center; font-size: 1.8em; color: var(--primary);">Galeria de Fotos</h2>
+                <div class="photo-gallery">
+                    <img src="ctb2.jpg" class="gallery-img" alt="Foto 1 do projeto">
+                    <img src="ctb3.jpg" class="gallery-img" alt="Foto 2 do projeto">
+                    <img src="ctb4.jpg" class="gallery-img" alt="Foto 3 do projeto">
+                    <img src="ctb5.jpg" class="gallery-img" alt="Foto 4 do projeto">
+                    <img src="ctb6.jpg" class="gallery-img" alt="Foto 5 do projeto">
+                    <img src="ctb7.jpg" class="gallery-img" alt="Foto 6 do projeto">
+                    <img src="ctb8.jpg" class="gallery-img" alt="Foto 7 do projeto">
+                    <img src="ctb9.jpg" class="gallery-img" alt="Foto 8 do projeto">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL PARA EXPANDIR IMAGEM (USADO PELA PÁGINA FOTOS) -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
     </div>
 
-    <div class="nav-bar">
-        <a href="indexprojeto.html" class="nav-btn">O Projeto</a>
-        <a href="execucao.html" class="nav-btn">Execução</a>
-        <a href="fotos.html" class="nav-btn">Fotos</a>
-    </div>
-
-    <div class="main-container">
-        <!-- Box com o Vídeo -->
-        <div class="content-box">
-            <video src="video.mp4" controls autoplay muted loop>
-                Seu navegador não suporta o elemento de vídeo.
-            </video>
-        </div>
-
-        <!-- Box com a Imagem -->
-        <div class="content-box">
-            <img src="ctbbocadorio.png" alt="Imagem do Clube dos Tenistas da Bahia na Boca do Rio">
-        </div>
-    </div>
-
-    <div class="footer">
+    <!-- RODAPÉ (APARECE EM TODAS AS PÁGINAS) -->
+    <footer class="footer">
         <div class="col left">
-            <strong>Clube dos Tenistas da Bahia</strong><br>
-            CNPJ: 23.146.328/0001-16<br>
-            <a href="mailto:paulo@ctb-ba.com.br">paulo@ctb-ba.com.br</a><br>
-            <a href="https://wa.me/5571985304903">WhatsApp: (71) 98530-4903</a>
+            <div><strong>Clube dos Tenistas da Bahia</strong></div>
+            <div>CNPJ 23.146.328/0001-16</div>
+            <div><a href="mailto:paulo@ctb-ba.com.br"><svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M2,6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6M4,6V18H20V6H4M4,8L12,13L20,8V6L12,11L4,6V8Z"/></svg> paulo@ctb-ba.com.br</a></div>
+            <div><a href="https://wa.me/5571985304903"><svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M16.73,12.23C16.32,11.89 15.13,11.28 14.75,11.17C14.38,11.07 14.16,11 13.93,11.28C13.7,11.56 13.31,12.05 13.13,12.27C12.95,12.5 12.76,12.53 12.36,12.31C11.96,12.09 10.97,11.66 10.17,10.72C9.38,9.78 9.2,9.09 9.03,8.78C8.86,8.46 9.01,8.33 9.23,8.13C9.44,7.92 9.73,7.52 9.86,7.34C9.99,7.16 10.05,7 10.17,6.8C10.29,6.6 10.27,6.41 10.24,6.29C10.2,6.18 9.88,5.42 9.51,5.3C9.14,5.18 8.77,5.19 8.54,5.22C8.32,5.25 7.94,5.6 7.94,5.6C7.64,5.89 7.38,6.37 7.38,7.06C7.39,7.76 7.86,8.63 8.27,9.3C8.68,9.96 9.61,11.16 10.84,12.2C12.08,13.24 13.31,14.08 14.17,14.37C15.03,14.65 15.73,14.6 16.16,14.55C16.6,14.5 17.08,14.34 17.31,14.18C17.53,14.02 17.67,13.75 17.68,13.5C17.68,13.25 17.68,12.57 16.73,12.23Z"/></svg> Zap 71-98530-4903</a></div>
         </div>
         <div class="col middle">
             <a href="https://www.linkedin.com/in/paulocarneiropfeira/" target="_blank">
-                <img class="linkedin-img" src="ctblinkedin.jpg" alt="Logo Linkedin">
-                Conecte-se no LinkedIn
+                <img class="linkedin-img" src="ctblinkedin.jpg" alt="Linkedin CTB">
+                <div>Conecte-se</div>
             </a>
         </div>
         <div class="col right">
-            <img src="ctb1.png" alt="Logo CTB rodapé">
+             <img src="ctb1.png" alt="Logo CTB rodapé">
         </div>
-    </div>
+    </footer>
 
+    <script>
+        // --- SCRIPT PARA NAVEGAÇÃO ENTRE PÁGINAS ---
+        function showPage(pageId, clickedButton) {
+            // Esconde todas as páginas
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+            // Mostra a página selecionada
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.style.display = 'block';
+            }
+            // Atualiza o estado ativo dos botões do menu
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            clickedButton.classList.add('active');
+        }
+
+        // --- SCRIPT PARA MODAL DA GALERIA DE FOTOS ---
+        var modal = document.getElementById('imageModal');
+        var modalImg = document.getElementById("modalImage");
+        var galleryImages = document.querySelectorAll('.gallery-img');
+        
+        galleryImages.forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        var span = document.getElementsByClassName("close")[0];
+        if (span) {
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
-
 

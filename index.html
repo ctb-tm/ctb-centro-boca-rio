@@ -10,7 +10,6 @@
             --primary: #046b43;
             --accent-blue: #1565c0;
             --text-primary: #09452c;
-            --text-secondary: #0b2b4c;
             --background: #f5f7fa;
             --card-bg: #fff;
             --font-main: 'Segoe UI', Arial, sans-serif;
@@ -73,10 +72,10 @@
             background: var(--card-bg);
             color: var(--accent-blue);
             border: none;
-            padding: 12px 30px;
-            font-size: 1.1em;
+            padding: 12px 25px;
+            font-size: 1em;
             border-radius: 10px;
-            margin: 0 10px;
+            margin: 0 8px;
             cursor: pointer;
             font-weight: bold;
             text-transform: uppercase;
@@ -145,6 +144,12 @@
         .content-box ul {
             list-style-type: '✔ ';
             padding-left: 20px;
+        }
+        
+        .contrapartidas-box {
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 20px;
+            margin: 20px 0;
         }
 
         /* ESTILOS DE TABELA */
@@ -258,8 +263,8 @@
         @media (max-width: 900px) {
             .header { padding: 12px 20px; flex-direction: column; gap: 10px; }
             .header .title-box h1 { font-size: 1.5em; }
-            .nav-menu { display: flex; flex-direction: column; gap: 10px; padding: 15px; }
-            .nav-btn { display: block; width: calc(100% - 80px); }
+            .nav-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 15px; }
+            .nav-btn { flex-grow: 1; min-width: 150px; }
             .content-box { padding: 18px 15px; }
             .footer { flex-direction: column; text-align: center; gap: 15px; }
             .footer .col, .footer .col.right { align-items: center; text-align: center; }
@@ -283,6 +288,7 @@
         <button class="nav-btn active" onclick="showPage('page-inicial', this)">Início</button>
         <button class="nav-btn" onclick="showPage('page-projeto', this)">Projeto</button>
         <button class="nav-btn" onclick="showPage('page-execucao', this)">Execução</button>
+        <button class="nav-btn" onclick="showPage('page-gestao', this)">Gestão</button>
         <button class="nav-btn" onclick="showPage('page-fotos', this)">Fotos</button>
     </nav>
 
@@ -297,95 +303,92 @@
             </div>
         </div>
 
-        <!-- PÁGINA 2: PROJETO (CONTEÚDO ATUALIZADO) -->
+        <!-- PÁGINA 2: PROJETO -->
         <div id="page-projeto" class="page">
             <div class="content-box">
 
                 <div class="section-title">
                     <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
-                    <h2>🌀 CTB HUB BOCA DO RIO</h2>
+                    <h2>🌍 Apresentação</h2>
                 </div>
-                <p>O CTB HUB Boca do Rio é uma iniciativa inovadora do Clube dos Tenistas da Bahia (CTB) que promove a integração entre esporte, meio ambiente, capacitação e saúde mental. Localizado em Salvador, o projeto transforma um espaço urbano em um centro comunitário de bem-estar, sustentabilidade e inclusão social, voltado especialmente para entregadores, jovens, mulheres e famílias da região da Boca do Rio.</p>
-                <p>O HUB é um modelo de regeneração urbana e cidadania ativa que utiliza o tênis de mesa como eixo estruturante, conectando práticas esportivas com educação ambiental, capacitação profissional e apoio psicológico.</p>
+                <p>O CTB HUB Boca do Rio é uma iniciativa do Clube dos Tenistas da Bahia (CTB) que visa promover saúde física e mental, sustentabilidade e inclusão social no bairro da Boca do Rio, em Salvador.</p>
+                <p>O projeto nasce como um espaço de inovação socioambiental e esportiva, integrando ações de tênis de mesa, capacitação profissional, oficinas ecológicas e apoio psicológico para entregadores, jovens e famílias da comunidade.</p>
+                <p>O HUB será instalado em um galpão sustentável adaptado, com estrutura para atividades esportivas, hortas verticais, coleta de água pluvial e áreas de convivência. A proposta é transformar o espaço em um ponto de encontro para práticas saudáveis, educação ambiental e cidadania ativa, contribuindo para a construção de uma Salvador mais verde, solidária e saudável.</p>
                 
                 <div class="section-title">
                     <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
                     <h2>🎯 Objetivo Geral</h2>
                 </div>
-                <p>Promover saúde física e mental, desenvolvimento socioambiental e empoderamento comunitário na Boca do Rio, por meio de atividades esportivas, ações educativas e práticas sustentáveis, consolidando o CTB HUB como um modelo de integração entre esporte, sustentabilidade e saúde coletiva.</p>
+                <p>Gerar impacto socioambiental positivo na Boca do Rio, promovendo saúde física e mental, cidadania e práticas sustentáveis por meio do esporte, oficinas e ações de compostagem comunitária.</p>
 
                 <div class="section-title">
                     <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
-                    <h2>🧭 Objetivos Específicos</h2>
+                    <h2>🏆 Objetivos Específicos</h2>
                 </div>
                 <ul>
-                    <li>Utilizar o tênis de mesa como ferramenta de inclusão, saúde e desenvolvimento pessoal.</li>
-                    <li>Estimular hábitos saudáveis и autocuidado entre jovens e trabalhadores autônomos.</li>
-                    <li>Promover capacitação comunitária em práticas sustentáveis (compostagem, reciclagem, hortas verticais).</li>
-                    <li>Oferecer apoio psicológico quinzenal, com foco em prevenção ao estresse e ansiedade.</li>
-                    <li>Formar 50 multiplicadores locais em saúde, esporte e meio ambiente.</li>
-                    <li>Realizar 10 torneios e 5 festivais socioambientais abertos à comunidade.</li>
-                    <li>Implantar infraestrutura ecológica: captação de água da chuva, jardins verticais e área de compostagem.</li>
+                    <li>Estimular hábitos saudáveis e autocuidado entre os participantes.</li>
+                    <li>Reduzir sedentarismo, estresse e sintomas de ansiedade.</li>
+                    <li>Oferecer 150 treinos/aulas anuais de tênis de mesa.</li>
+                    <li>Realizar 10 torneios e 5 festivais sustentáveis com a comunidade.</li>
+                    <li>Formar 50 multiplicadores em saúde e meio ambiente.</li>
+                    <li>Promover oficinas de reciclagem, compostagem, economia circular e cidadania ambiental.</li>
+                    <li>Oferecer atendimento psicológico quinzenal e atividades de bem-estar.</li>
+                    <li>Implantar ações de coleta seletiva e reaproveitamento de resíduos.</li>
                 </ul>
-
                 <div class="section-title">
                     <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
-                    <h2>🌍 Fundamentação Socioambiental</h2>
+                    <h2>💬 Conclusão</h2>
                 </div>
-                <p>O CTB HUB Boca do Rio é fundamentado no princípio de que o esporte pode ser um vetor de transformação socioambiental. A iniciativa surge como resposta a desafios urbanos e humanos da comunidade: sedentarismo, estresse, falta de áreas verdes, insegurança alimentar e carência de espaços de convivência.</p>
-                <p>Essa abordagem transversal cria um ambiente saudável, participativo e ambientalmente responsável, alinhado aos Objetivos de Desenvolvimento Sustentável (ODS) da ONU — especialmente os ODS 3 (Saúde e Bem-Estar), 4 (Educação de Qualidade), 11 (Cidades Sustentáveis) e 13 (Ação Contra a Mudança Global do Clima).</p>
-
-                <div class="section-title">
-                    <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
-                    <h2>💬 Mensagem Final</h2>
-                </div>
-                <p>O CTB HUB Boca do Rio é mais do que um projeto: é um ecossistema social e sustentável, onde o esporte é ponte para o desenvolvimento humano e ambiental. Ao unir tênis de mesa, capacitação, meio ambiente e apoio psicológico, o CTB reafirma seu compromisso com uma Bahia mais saudável, inclusiva e verde, transformando vidas e territórios por meio da educação e do bem-estar.</p>
-
+                <p>O CTB HUB Boca do Rio é uma proposta integrada de esporte, sustentabilidade e bem-estar que fortalece vínculos comunitários e promove cidadania através de ações concretas. Com investimento acessível e retorno social elevado, o projeto consolida um modelo replicável de hub socioambiental que alia impacto real, gestão eficiente e engajamento corporativo responsável.</p>
             </div>
         </div>
         
-        <!-- PÁGINA 3: EXECUÇÃO (CONTEÚDO ATUALIZADO) -->
+        <!-- PÁGINA 3: EXECUÇÃO -->
         <div id="page-execucao" class="page">
              <div class="content-box">
                 <div class="section-title">
                     <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
-                    <h2>⚙️ Metodologia de Execução</h2>
+                    <h2>⚙️ Metodologia</h2>
                 </div>
-                <p>A metodologia combina educação participativa, prática esportiva e monitoramento social. O processo se organiza em quatro etapas:</p>
-                 <ul>
-                    <li><strong>Diagnóstico e Planejamento:</strong> Levantamento socioambiental, cadastro de participantes e adaptação do galpão com infraestrutura verde.</li>
-                    <li><strong>Formação e Atividades Regulares:</strong> Aulas de tênis de mesa 3 vezes por semana, oficinas mensais e atendimento psicológico quinzenal.</li>
-                    <li><strong>Mobilização e Eventos:</strong> Realização de 10 torneios e 5 festivais, além de mutirões de reciclagem, compostagem e plantio.</li>
-                    <li><strong>Monitoramento e Avaliação:</strong> Análise de indicadores trimestrais, avaliação participativa e relatórios públicos de resultados.</li>
+                <p>A metodologia do CTB HUB Boca do Rio é baseada em aprendizagem vivencial, educação socioambiental e prática esportiva inclusiva. As atividades serão conduzidas em um modelo integrado, com acompanhamento técnico e monitoramento constante, seguindo as etapas:</p>
+                <ul>
+                    <li><strong>Diagnóstico e cadastro:</strong> Mapeamento social e avaliação inicial de saúde e hábitos.</li>
+                    <li><strong>Adequação do espaço:</strong> Instalação de mesas, hortas verticais e sistema de captação de água de chuva.</li>
+                    <li><strong>Treinos regulares:</strong> 3 aulas semanais de tênis de mesa, adaptadas para diferentes faixas etárias.</li>
+                    <li><strong>Oficinas mensais:</strong> Temas como compostagem, reciclagem, empreendedorismo verde e consumo consciente.</li>
+                    <li><strong>Suporte psicológico:</strong> Atendimento individual e rodas de conversa quinzenais sobre saúde mental.</li>
+                    <li><strong>Monitoramento de indicadores:</strong> Avaliações trimestrais sobre desempenho técnico e impacto ambiental.</li>
                 </ul>
-
+                
                 <div class="section-title">
                     <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
-                    <h2>📊 Indicadores e Resultados Esperados</h2>
+                    <h2>📅 Cronograma de Execução (12 meses)</h2>
                 </div>
                 <div class="table-container">
                     <table>
                         <thead>
                             <tr>
-                                <th>Indicador</th>
-                                <th>Meta</th>
-                                <th>Impacto Esperado</th>
+                                <th>Etapa</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th><th>M7</th><th>M8</th><th>M9</th><th>M10</th><th>M11</th><th>M12</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Beneficiários diretos</td><td>800</td><td>Jovens, entregadores e famílias locais</td></tr>
-                            <tr><td>Beneficiários indiretos</td><td>3.000</td><td>Comunidade e entorno escolar/comercial</td></tr>
-                            <tr><td>Aulas de tênis de mesa</td><td>150/ano</td><td>Saúde e socialização</td></tr>
-                            <tr><td>Oficinas socioambientais</td><td>12</td><td>Educação ambiental e formação de multiplicadores</td></tr>
-                            <tr><td>Torneios e festivais</td><td>15</td><td>Mobilização e engajamento social</td></tr>
-                            <tr><td>Multiplicadores formados</td><td>50</td><td>Lideranças locais em esporte e sustentabilidade</td></tr>
-                            <tr><td>Composteiras instaladas</td><td>4</td><td>Redução de 3 toneladas de resíduos/ano</td></tr>
-                            <tr><td>Água pluvial reaproveitada</td><td>15.000 litros/ano</td><td>Sustentabilidade hídrica</td></tr>
-                            <tr><td>Redução de estresse percebido</td><td>40% dos participantes</td><td>Melhoria da saúde mental</td></tr>
+                            <tr><td>Mobilização comunitária</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Infraestrutura e adequação</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Cadastro e diagnóstico</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Treinos de tênis de mesa</td><td></td><td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+                            <tr><td>Oficinas socioambientais</td><td></td><td></td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td></tr>
+                            <tr><td>Torneios e festivais</td><td></td><td></td><td></td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td><td>X</td><td></td></tr>
+                            <tr><td>Suporte psicológico</td><td></td><td></td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr>
+                            <tr><td>Monitoramento e avaliação</td><td></td><td></td><td></td><td></td><td></td><td>X</td><td></td><td></td><td></td><td></td><td></td><td>X</td></tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
 
+        <!-- PÁGINA 4: GESTÃO -->
+        <div id="page-gestao" class="page">
+            <div class="content-box">
                 <div class="section-title">
                     <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
                     <h2>💰 Orçamento Detalhado</h2>
@@ -416,11 +419,47 @@
                         </tbody>
                     </table>
                 </div>
+                 <div class="section-title">
+                    <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
+                    <h2>📈 Análise de Viabilidade Financeira</h2>
+                </div>
+                <p>O valor total de R$ 364.000,00 foi definido a partir de um planejamento detalhado, assegurando uso eficiente dos recursos e impacto direto. A viabilidade se sustenta em:</p>
+                <ul>
+                    <li>Gestão técnica e transparente pelo Clube dos Tenistas da Bahia (CTB).</li>
+                    <li>Baixo custo administrativo, priorizando recursos em ações diretas.</li>
+                    <li>Parcerias locais com escolas, universidades e cooperativas ambientais.</li>
+                    <li>Infraestrutura sustentável, com redução de custos operacionais.</li>
+                    <li>Captação diversificada, com possibilidade de uso da Lei de Incentivo ao Esporte e investimentos privados em projetos ESG.</li>
+                </ul>
+
+                <div class="section-title">
+                    <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
+                    <h2>🤝 Contrapartidas para Patrocinadores</h2>
+                </div>
+                 <div class="contrapartidas-box">
+                    <h3>🥇 Cota Master – A partir de R$ 150.000,00</h3>
+                    <p>Destaque da marca em toda a comunicação, ativações em eventos, relatórios trimestrais de impacto e placa de reconhecimento permanente no HUB.</p>
+                </div>
+                <div class="contrapartidas-box">
+                    <h3>🥈 Cota Parceiro – De R$ 80.000,00 a R$ 149.999,00</h3>
+                    <p>Inserção da marca em materiais promocionais, participação em eventos e certificado de Empresa Parceira da Sustentabilidade.</p>
+                </div>
+                <div class="contrapartidas-box">
+                    <h3>🥉 Cota Amigo do Esporte – Até R$ 79.999,00</h3>
+                    <p>Logotipo em redes sociais, site do CTB e painel de apoiadores do HUB, além de certificado e relatório final de impacto.</p>
+                </div>
+
+                <div class="section-title">
+                    <img src="ctb.svg" class="section-icon" alt="Ícone CTB">
+                    <h2>🌱 Retorno Institucional e ESG</h2>
+                </div>
+                <p>Empresas apoiadoras contribuirão diretamente para os Objetivos de Desenvolvimento Sustentável (ODS) 3, 4, 11, 12 e 13 da ONU, reforçando seu posicionamento como agentes de transformação social e alinhando-se às práticas de Responsabilidade Social e Governança Ambiental (ESG).</p>
 
             </div>
         </div>
 
-        <!-- PÁGINA 4: FOTOS -->
+
+        <!-- PÁGINA 5: FOTOS -->
         <div id="page-fotos" class="page">
             <div class="content-box">
                 <h2 style="text-align: center; font-size: 1.8em; color: var(--primary);">Galeria de Fotos</h2>
@@ -450,7 +489,7 @@
             <div><strong>Clube dos Tenistas da Bahia</strong></div>
             <div>CNPJ 23.146.328/0001-16</div>
             <a href="mailto:paulo@ctb-ba.com.br"><svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M2,6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6M4,6V18H20V6H4M4,8L12,13L20,8V6L12,11L4,6V8Z"/></svg>paulo@ctb-ba.com.br</a>
-            <a href="https://wa.me/5571985304903"><svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M16.73,12.23C16.32,11.89 15.13,11.28 14.75,11.17C14.38,11.07 14.16,11 13.93,11.28C13.7,11.56 13.31,12.05 13.13,12.27C12.95,12.5 12.76,12.53 12.36,12.31C11.96,12.09 10.97,11.66 10.17,10.72C9.38,9.78 9.2,9.09 9.03,8.78C8.86,8.46 9.01,8.33 9.23,8.13C9.44,7.92 9.73,7.52 9.86,7.34C9.99,7.16 10.05,7 10.17,6.8C10.29,6.6 10.27,6.41 10.24,6.29C10.2,6.18 9.88,5.42 9.51,5.3C9.14,5.18 8.77,5.19 8.54,5.22C8.32,5.25 7.94,5.6 7.94,5.6C7.64,5.89 7.38,6.37 7.38,7.06C7.39,7.76 7.86,8.63 8.27,9.3C8.68,9.96 9.61,11.16 10.84,12.2C12.08,13.24 13.31,14.08 14.17,14.37C15.03,14.65 15.73,14.6 16.16,14.55C16.6,14.5 17.08,14.34 17.31,14.18C17.53,14.02 17.67,13.75 17.68,13.5C17.68,13.25 17.68,12.57 16.73,12.23Z"/></svg>Zap (71) 98530-4903</a>
+            <a href="https://wa.me/5571985304903"><svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M16.73,12.23C16.32,11.89 15.13,11.28 14.75,11.17C14.38,11.07 14.16,11 13.93,11.28C13.7,11.56 13.31,12.05 13.13,12.27C12.95,12.5 12.76,12.53 12.36,12.31C11.96,12.09 10.97,11.66 10.17,10.72C9.38,9.78 9.2,0,0,9.03,8.78C8.86,8.46 9.01,8.33 9.23,8.13C9.44,7.92 9.73,7.52 9.86,7.34C9.99,7.16 10.05,7 10.17,6.8C10.29,6.6 10.27,6.41 10.24,6.29C10.2,6.18 9.88,5.42 9.51,5.3C9.14,5.18 8.77,5.19 8.54,5.22C8.32,5.25 7.94,5.6 7.94,5.6C7.64,5.89 7.38,6.37 7.38,7.06C7.39,7.76 7.86,8.63 8.27,9.3C8.68,9.96 9.61,11.16 10.84,12.2C12.08,13.24 13.31,14.08 14.17,14.37C15.03,14.65 15.73,14.6 16.16,14.55C16.6,14.5 17.08,14.34 17.31,14.18C17.53,14.02 17.67,13.75 17.68,13.5C17.68,13.25 17.68,12.57 16.73,12.23Z"/></svg>Zap (71) 98530-4903</a>
         </div>
         <div class="col middle">
             <a href="https://www.linkedin.com/in/paulocarneiropfeira/" target="_blank">

@@ -273,7 +273,6 @@
 </head>
 <body>
 
-    <!-- CABEÇALHO (APARECE EM TODAS AS PÁGINAS) -->
     <header class="header">
         <img src="ctb.png" alt="CTB">
         <div class="title-box">
@@ -283,7 +282,6 @@
         <img src="ctbbocadorio.png" alt="Boca do Rio Hub">
     </header>
 
-    <!-- MENU DE NAVEGAÇÃO (CONTROLA AS PÁGINAS) -->
     <nav class="nav-menu">
         <button class="nav-btn active" onclick="showPage('page-inicial', this)">Início</button>
         <button class="nav-btn" onclick="showPage('page-projeto', this)">Projeto</button>
@@ -293,19 +291,20 @@
     </nav>
 
     <main class="main-bg">
-        <!-- PÁGINA 1: INÍCIO -->
         <div id="page-inicial" class="page active">
             <div class="content-box">
                 <div class="centered-content">
+                    
                     <video controls autoplay muted loop class="media-item">
-        <source src="video.mp4" type="video/mp4">
-  </video>
+                        <source src="video.mp4" type="video/mp4">
+                        O seu navegador não suporta a reprodução de vídeos.
+                    </video>
+                    
                     <img src="ctbbocadorio.png" alt="Logo do Projeto CTB Boca do Rio" class="media-item">
                 </div>
             </div>
         </div>
 
-        <!-- PÁGINA 2: PROJETO -->
         <div id="page-projeto" class="page">
             <div class="content-box">
 
@@ -345,7 +344,6 @@
             </div>
         </div>
         
-        <!-- PÁGINA 3: EXECUÇÃO -->
         <div id="page-execucao" class="page">
              <div class="content-box">
                 <div class="section-title">
@@ -388,7 +386,6 @@
             </div>
         </div>
 
-        <!-- PÁGINA 4: GESTÃO -->
         <div id="page-gestao" class="page">
             <div class="content-box">
                 <div class="section-title">
@@ -461,7 +458,6 @@
         </div>
 
 
-        <!-- PÁGINA 5: FOTOS -->
         <div id="page-fotos" class="page">
             <div class="content-box">
                 <h2 style="text-align: center; font-size: 1.8em; color: var(--primary);">Galeria de Fotos</h2>
@@ -479,13 +475,11 @@
         </div>
     </main>
 
-    <!-- MODAL PARA EXPANDIR IMAGEM (USADO PELA PÁGINA FOTOS) -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
 
-    <!-- RODAPÉ (APARECE EM TODAS AS PÁGINAS) -->
     <footer class="footer">
         <div class="col left">
             <div><strong>Clube dos Tenistas da Bahia</strong></div>
@@ -508,12 +502,17 @@
         // --- SCRIPT PARA NAVEGAÇÃO ENTRE PÁGINAS ---
         function showPage(pageId, clickedButton) {
             // Esconde todas as páginas
-            document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             // Mostra a página selecionada
-            document.getElementById(pageId).style.display = 'block';
+            document.getElementById(pageId).classList.add('active');
+            
             // Atualiza o estado ativo dos botões do menu
             document.querySelectorAll('.nav-btn').forEach(button => button.classList.remove('active'));
             clickedButton.classList.add('active');
+
+            // Corrige a exibição da página ativa
+            document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+            document.getElementById(pageId).style.display = 'block';
         }
 
         // --- SCRIPT PARA MODAL DA GALERIA DE FOTOS ---
@@ -545,4 +544,3 @@
     </script>
 </body>
 </html>
-
